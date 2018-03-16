@@ -23,10 +23,10 @@ def generate_users
   Array.new(100) do |id|
     Data.users[id] = {
       "status"     => Faker.rng.rand(2) > 0 ? "active" : "locked",
+      "updated_at" => Time.now.to_s("%FT%X%z"),
+      "created_at" => Time.now.to_s("%FT%X%z"),
       "first_name" => Faker::Name.first_name,
       "last_name"  => Faker::Name.last_name,
-      "updated_at" => Time.now.to_s,
-      "created_at" => Time.now.to_s,
       "id"         => id.to_s,
     }
   end
@@ -73,7 +73,7 @@ put "/users/:id" do |env|
     "first_name" => env.params.json["first_name"].as(String),
     "last_name"  => env.params.json["last_name"].as(String),
     "status"     => env.params.json["status"].as(String),
-    "updated_at" => Time.now.to_s,
+    "updated_at" => Time.now.to_s("%FT%X%z"),
   }
 
   Data.users[id].merge!(params).to_json
@@ -87,8 +87,8 @@ post "/users" do |env|
     "first_name" => env.params.json["first_name"].as(String),
     "last_name"  => env.params.json["last_name"].as(String),
     "status"     => env.params.json["status"].as(String),
-    "updated_at" => Time.now.to_s,
-    "created_at" => Time.now.to_s,
+    "updated_at" => Time.now.to_s("%FT%X%z"),
+    "created_at" => Time.now.to_s("%FT%X%z"),
     "id"         => id.to_s,
   }
 
