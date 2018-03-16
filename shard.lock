@@ -1,0 +1,26 @@
+version: 1.0
+shards:
+  baked_file_system:
+    github: schovi/baked_file_system
+    version: 0.9.5
+
+  faker:
+    github: askn/faker
+    commit: 4176ac1e5d6c1a788bdc48df4f8265dc18d977d8
+
+  kemal:
+    github: kemalcr/kemal
+    version: 0.22.0
+
+  kilt:
+    github: jeromegn/kilt
+    version: 0.4.0
+
+  radix:
+    github: luislavena/radix
+    version: 0.3.8
+
+  string_inflection:
+    github: mosop/string_inflection
+    version: 0.2.1
+
