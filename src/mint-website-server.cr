@@ -1,14 +1,27 @@
 require "kemal"
 require "faker"
+require "crest"
 
-USERS    = {} of Int32 => Hash(String, String)
-STATUSES = ["active", "locked"]
+class Data
+  class_property users
+  class_property versions
+
+  @@versions = ""
+  @@users = {} of Int32 => Hash(String, String)
+end
+
+def update_versions
+  response =
+    Crest.get("https://api.github.com/repos/gdotdesign/elm-ui/releases")
+
+  Data.versions = response.body
+end
 
 def generate_users
   Faker.seed 10
 
   Array.new(100) do |id|
-    USERS[id] = {
+    Data.users[id] = {
       "status"     => Faker.rng.rand(2) > 0 ? "active" : "locked",
       "first_name" => Faker::Name.first_name,
       "last_name"  => Faker::Name.last_name,
@@ -33,20 +46,24 @@ end
 options "/*" do |env|
 end
 
+get "/releases" do
+  Data.versions
+end
+
 get "/users" do
-  USERS.values.to_json
+  Data.users.values.to_json
 end
 
 get "/users/:id" do |env|
   id = env.params.url["id"].to_i32
 
-  USERS[id]?.to_json
+  Data.users[id]?.to_json
 end
 
 delete "/users/:id" do |env|
   id = env.params.url["id"].to_i32
 
-  USERS.delete(id).to_json
+  Data.users.delete(id).to_json
 end
 
 put "/users/:id" do |env|
@@ -59,12 +76,12 @@ put "/users/:id" do |env|
     "updated_at" => Time.now.to_s,
   }
 
-  USERS[id].merge!(params).to_json
+  Data.users[id].merge!(params).to_json
 end
 
 post "/users" do |env|
   id =
-    (USERS.keys.max? || -1) + 1
+    (Data.users.keys.max? || -1) + 1
 
   params = {
     "first_name" => env.params.json["first_name"].as(String),
@@ -75,14 +92,16 @@ post "/users" do |env|
     "id"         => id.to_s,
   }
 
-  USERS[id] = params
+  Data.users[id] = params
   params.to_json
 end
 
-# Reset every two hours
 spawn do
-  generate_users
-  sleep 2.hours
+  loop do
+    update_versions
+    generate_users
+    sleep 2.hours
+  end
 end
 
 port =

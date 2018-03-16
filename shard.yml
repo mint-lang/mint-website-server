@@ -11,3 +11,5 @@ dependencies:
   faker:
     github: askn/faker
     branch: master
+  crest:
+    github: mamantoha/crest

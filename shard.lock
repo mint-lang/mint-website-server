@@ -4,6 +4,10 @@ shards:
     github: schovi/baked_file_system
     version: 0.9.5
 
+  crest:
+    github: mamantoha/crest
+    version: 0.9.7
+
   faker:
     github: askn/faker
     commit: 4176ac1e5d6c1a788bdc48df4f8265dc18d977d8
