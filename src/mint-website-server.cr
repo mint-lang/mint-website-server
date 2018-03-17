@@ -12,7 +12,7 @@ end
 
 def update_versions
   response =
-    Crest.get("https://api.github.com/repos/gdotdesign/elm-github-install/releases")
+    Crest.get("https://api.github.com/repos/mint-lang/mint/releases")
 
   Data.versions = response.body
 end
