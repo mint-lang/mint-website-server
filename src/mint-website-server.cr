@@ -1,6 +1,7 @@
 require "kemal"
 require "faker"
 require "crest"
+require "mint/all"
 
 class Data
   class_property users
@@ -44,6 +45,31 @@ before_all do |env|
 end
 
 options "/*" do |env|
+end
+
+post "/compile" do |env|
+  begin
+    runtime =
+      Mint::Assets.read("runtime.js")
+
+    body =
+      env.request.body.try(&.gets_to_end)
+
+    ast =
+      Mint::Parser.parse(body.to_s, "Main.mint")
+
+    type_checker =
+      Mint::TypeChecker.new(ast)
+
+    compiled =
+      Mint::Compiler.compile type_checker.artifacts
+
+    env.response.content_type = "application/javascript"
+    runtime + compiled
+  rescue error : Mint::Error
+    env.response.content_type = "text/html"
+    halt env, status_code: 500, response: error.to_html
+  end
 end
 
 get "/releases" do

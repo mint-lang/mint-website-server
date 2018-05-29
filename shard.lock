@@ -1,12 +1,20 @@
 version: 1.0
 shards:
+  admiral:
+    github: jwaldrip/admiral.cr
+    version: 1.6.1
+
   baked_file_system:
     github: schovi/baked_file_system
-    version: 0.9.5
+    version: 0.9.6
 
   crest:
     github: mamantoha/crest
-    version: 0.9.7
+    version: 0.10.1
+
+  duktape:
+    github: jessedoyle/duktape.cr
+    version: 0.13.0
 
   faker:
     github: askn/faker
@@ -20,6 +28,10 @@ shards:
     github: jeromegn/kilt
     version: 0.4.0
 
+  mint:
+    github: mint-lang/mint
+    commit: 46169bb0c5e8e8d14f9cd2ba9476235554ffa0ca
+
   radix:
     github: luislavena/radix
     version: 0.3.8
@@ -27,4 +39,12 @@ shards:
   string_inflection:
     github: mosop/string_inflection
     version: 0.2.1
+
+  time_format:
+    github: vladfaust/time_format.cr
+    version: 0.1.1
+
+  tree_template:
+    github: anykeyh/tree_template
+    commit: 3fcb71ee6852040077dd1a2c8c55c67f4a95ba4e
 

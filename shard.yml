@@ -2,6 +2,9 @@ name: mint-website-server
 version: 1.0.0
 
 dependencies:
+  mint:
+    github: mint-lang/mint
+    branch: master
   string_inflection:
     github: mosop/string_inflection
   baked_file_system:
