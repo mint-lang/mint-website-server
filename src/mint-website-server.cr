@@ -58,8 +58,14 @@ post "/compile" do |env|
     ast =
       Mint::Parser.parse(body.to_s, "Main.mint")
 
+    Dir.glob("vendor/mint-core/source/**.mint").each do |file|
+      ast.merge(Mint::Parser.parse(File.read(file), file))
+    end
+
     type_checker =
       Mint::TypeChecker.new(ast)
+
+    type_checker.check
 
     compiled =
       Mint::Compiler.compile type_checker.artifacts
