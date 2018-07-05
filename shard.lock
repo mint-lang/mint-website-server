@@ -2,19 +2,23 @@ version: 1.0
 shards:
   admiral:
     github: jwaldrip/admiral.cr
-    version: 1.6.1
+    version: 1.7.2
 
   baked_file_system:
     github: schovi/baked_file_system
-    version: 0.9.6
+    commit: e1447549d5ac0560720fae62179b2f2c62c9bfd1
 
   crest:
     github: mamantoha/crest
-    version: 0.10.1
+    version: 0.10.2
 
   duktape:
     github: jessedoyle/duktape.cr
-    version: 0.13.0
+    version: 0.14.1
+
+  exception_page:
+    github: crystal-loot/exception_page
+    version: 0.1.1
 
   faker:
     github: askn/faker
@@ -22,7 +26,7 @@ shards:
 
   kemal:
     github: kemalcr/kemal
-    version: 0.22.0
+    commit: b8ec6ee32866d97bef1b2a16770f02f2e1d90789
 
   kilt:
     github: jeromegn/kilt
@@ -30,7 +34,7 @@ shards:
 
   mint:
     github: mint-lang/mint
-    commit: 4d368725ff66bd9df78eae58d7da3948d53b2abb
+    commit: 351aa8062b998435177f83c867ebbdff2e9b44a8
 
   radix:
     github: luislavena/radix
