@@ -58,7 +58,7 @@ post "/compile" do |env|
     ast =
       Mint::Parser.parse(body.to_s, "Main.mint")
 
-    Dir.glob("vendor/mint-core/source/**.mint").each do |file|
+    Dir.glob("vendor/mint-core/source/**/*.mint").each do |file|
       ast.merge(Mint::Parser.parse(File.read(file), file))
     end
 
