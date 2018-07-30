@@ -2,15 +2,15 @@ version: 1.0
 shards:
   admiral:
     github: jwaldrip/admiral.cr
-    version: 1.7.2
+    version: 1.7.3
 
   baked_file_system:
     github: schovi/baked_file_system
-    commit: e1447549d5ac0560720fae62179b2f2c62c9bfd1
+    commit: 24dbaf2180b872c0f0fc777b34e3759108959e6e
 
   crest:
     github: mamantoha/crest
-    version: 0.10.2
+    version: 0.12.0
 
   duktape:
     github: jessedoyle/duktape.cr
@@ -26,7 +26,7 @@ shards:
 
   kemal:
     github: kemalcr/kemal
-    commit: b8ec6ee32866d97bef1b2a16770f02f2e1d90789
+    commit: 09bb1fcd4073a374b3a61c99e48e05a866b23c08
 
   kilt:
     github: jeromegn/kilt
@@ -34,7 +34,7 @@ shards:
 
   mint:
     github: mint-lang/mint
-    commit: 351aa8062b998435177f83c867ebbdff2e9b44a8
+    commit: 06cc22f5940ef517c9558f491eded646f6d98534
 
   radix:
     github: luislavena/radix
