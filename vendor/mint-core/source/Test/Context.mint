@@ -25,7 +25,10 @@ module Test.Context {
       }
     }
   */
-  fun then (proc : Function(a, Promise(b, c)), context : Test.Context(a)) : Test.Context(c) {
+  fun then (
+    proc : Function(a, Promise(b, c)),
+    context : Test.Context(a)
+  ) : Test.Context(c) {
     `
     context.step((subject)=> {
       return proc(subject)
@@ -36,7 +39,7 @@ module Test.Context {
   /* Adds a timeout to the text using the given duration (in milliseconds). */
   fun timeout (duration : Number, context : Test.Context(a)) : Test.Context(a) {
     then(
-      (subject : a) : Promise(Never, Test.Context(a)) => { Timer.timeout(duration, subject) },
+      (subject : a) : Promise(Never, a) => { Timer.timeout(duration, subject) },
       context)
   }
 
@@ -64,7 +67,11 @@ module Test.Context {
     `
   }
 
-  fun assertOf (value : b, method : Function(a, b), context : Test.Context(a)) : Test.Context(a) {
+  fun assertOf (
+    value : b,
+    method : Function(a, b),
+    context : Test.Context(a)
+  ) : Test.Context(a) {
     `
     context.step((item) => {
       let actual = method(item)

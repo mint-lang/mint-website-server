@@ -149,27 +149,34 @@ suite "Http.sendWithID" {
 }
 
 component Test.Http {
+  property shouldError : Bool = false
   property method : String = "GET"
   property timeout : Bool = false
   property url : String = "/blah"
   property abort : Bool = false
-  property error : Bool = false
 
   state errorMessage : String = ""
   state status : Number = 0
   state body : String = ""
 
-  fun componentDidMount : Void {
-    do {
+  fun wrap (
+    method : Function(Promise(a, b), Void),
+    input : Promise(a, b)
+  ) : Promise(a, b) {
+    `method(input)`
+  }
+
+  fun componentDidMount : Promise(Never, Void) {
+    sequence {
       response =
         Http.empty()
         |> Http.url(url)
         |> Http.method(method)
         |> Http.sendWithID("test")
-        |> Promise.wrap(
+        |> wrap(
           `
           (async (promise) => {
-            if (this.error) {
+            if (this.shouldError) {
               $Http._requests["test"].dispatchEvent(new CustomEvent("error"))
             } else if (this.timeout) {
               $Http._requests["test"].dispatchEvent(new CustomEvent("timeout"))
@@ -212,8 +219,6 @@ component Test.Http {
               errorMessage = "aborted",
               status = error.status
             }
-
-        => void
       }
     }
   }
@@ -258,7 +263,7 @@ suite "Http.Error" {
 
   test "NetWorkError" {
     with Test.Html {
-      <Test.Http error={true}/>
+      <Test.Http shouldError={true}/>
       |> start()
       |> assertTextOf("error", "network-error")
       |> assertTextOf("status", "0")

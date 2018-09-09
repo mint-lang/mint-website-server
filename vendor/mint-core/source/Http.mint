@@ -142,6 +142,17 @@ module Http {
   }
 
   /*
+  Sets the body of the request to the given object encoded to JSON
+
+    Http.post("https://httpbin.org/anything")
+    |> Http.jsonBody(encode { name = "John" })
+    |> Http.send()
+  */
+  fun jsonBody (body : Object, request : Http.Request) : Http.Request {
+    { request | body = `JSON.stringify(body)` }
+  }
+
+  /*
   Sets the body of the request to the given string
 
     formData =
@@ -248,7 +259,7 @@ module Http {
         delete this._requests[uid]
 
         reject({
-          type: $Http_Error_BadUrl,
+          type: new $$Http_Error_BadUrl,
           status: xhr.status,
           url: request.url
         })
@@ -262,7 +273,7 @@ module Http {
         delete this._requests[uid]
 
         reject({
-          type: $Http_Error_NetworkError,
+          type: new $$Http_Error_NetworkError,
           status: xhr.status,
           url: request.url
         })
@@ -272,7 +283,7 @@ module Http {
         delete this._requests[uid]
 
         reject({
-          type: $Http_Error_Timeout,
+          type: new $$Http_Error_Timeout,
           status: xhr.status,
           url: request.url
         })
@@ -288,7 +299,7 @@ module Http {
         delete this._requests[uid]
 
         reject({
-          type: $Http_Error_Aborted,
+          type: new $$Http_Error_Aborted,
           status: xhr.status,
           url: request.url
         })

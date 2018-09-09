@@ -6,11 +6,11 @@ shards:
 
   baked_file_system:
     github: schovi/baked_file_system
-    commit: 24dbaf2180b872c0f0fc777b34e3759108959e6e
+    version: 0.9.7
 
   crest:
     github: mamantoha/crest
-    version: 0.12.0
+    version: 0.14.0
 
   duktape:
     github: jessedoyle/duktape.cr
@@ -26,7 +26,7 @@ shards:
 
   kemal:
     github: kemalcr/kemal
-    commit: 09bb1fcd4073a374b3a61c99e48e05a866b23c08
+    version: 0.24.0
 
   kilt:
     github: jeromegn/kilt
@@ -34,7 +34,7 @@ shards:
 
   mint:
     github: mint-lang/mint
-    commit: a32500c5699ea6dc2ac9496e9f5942add1121dc3
+    commit: 66277c05eaeeb331c50ee0e7f84ee6df923dafee
 
   radix:
     github: luislavena/radix
