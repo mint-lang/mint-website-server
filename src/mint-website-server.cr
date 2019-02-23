@@ -56,11 +56,9 @@ post "/compile" do |env|
       env.request.body.try(&.gets_to_end)
 
     ast =
-      Mint::Parser.parse(body.to_s, "Main.mint")
-
-    Dir.glob("vendor/mint-core/source/**/*.mint").each do |file|
-      ast.merge(Mint::Parser.parse(File.read(file), file))
-    end
+      Mint::Parser
+        .parse(body.to_s, "Main.mint")
+        .merge(Mint::Core.ast)
 
     type_checker =
       Mint::TypeChecker.new(ast)

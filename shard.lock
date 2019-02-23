@@ -10,7 +10,11 @@ shards:
 
   crest:
     github: mamantoha/crest
-    version: 0.14.0
+    version: 0.18.3
+
+  dotenv:
+    github: gdotdesign/cr-dotenv
+    version: 0.2.0
 
   duktape:
     github: jessedoyle/duktape.cr
@@ -18,15 +22,15 @@ shards:
 
   exception_page:
     github: crystal-loot/exception_page
-    version: 0.1.1
+    version: 0.1.2
 
   faker:
     github: askn/faker
-    commit: 4176ac1e5d6c1a788bdc48df4f8265dc18d977d8
+    commit: da14470383819d99bec6f618b05a116428165705
 
   kemal:
     github: kemalcr/kemal
-    version: 0.24.0
+    version: 0.25.1
 
   kilt:
     github: jeromegn/kilt
@@ -34,11 +38,11 @@ shards:
 
   mint:
     github: mint-lang/mint
-    commit: 66277c05eaeeb331c50ee0e7f84ee6df923dafee
+    commit: 409915b9c1d80f85d770552ef5c3435cfc3a3b94
 
   radix:
     github: luislavena/radix
-    version: 0.3.8
+    version: 0.3.9
 
   string_inflection:
     github: mosop/string_inflection
