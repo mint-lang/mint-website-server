@@ -16,17 +16,13 @@ shards:
     github: gdotdesign/cr-dotenv
     version: 0.2.0
 
-  duktape:
-    github: jessedoyle/duktape.cr
-    version: 0.14.1
-
   exception_page:
     github: crystal-loot/exception_page
     version: 0.1.2
 
   faker:
     github: askn/faker
-    commit: da14470383819d99bec6f618b05a116428165705
+    commit: 5b53bf19c5515bac1f9470478f2fa11d395b385c
 
   kemal:
     github: kemalcr/kemal
@@ -38,7 +34,7 @@ shards:
 
   mint:
     github: mint-lang/mint
-    commit: 409915b9c1d80f85d770552ef5c3435cfc3a3b94
+    commit: 06eb511db822f37eedbe293ad97011b1b8d60559
 
   radix:
     github: luislavena/radix
