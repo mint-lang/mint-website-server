@@ -42,7 +42,7 @@ shards:
 
   mint:
     github: mint-lang/mint
-    commit: b5e1b4ff19582afcb7e5fa150cf2005b7b662ec8
+    commit: ca512cbe0da13e89031a1545747d148a53e76ca6
 
   radix:
     github: luislavena/radix
