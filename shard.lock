@@ -10,11 +10,11 @@ shards:
 
   crest:
     github: mamantoha/crest
-    version: 0.18.3
+    version: 0.22.0
 
   dotenv:
     github: gdotdesign/cr-dotenv
-    version: 0.2.0
+    version: 0.3.1
 
   exception_page:
     github: crystal-loot/exception_page
@@ -22,7 +22,11 @@ shards:
 
   faker:
     github: askn/faker
-    commit: 5b53bf19c5515bac1f9470478f2fa11d395b385c
+    commit: 83c938838b3f814c10fa6fe249bc4fc92ab7f0a3
+
+  http-client-digest_auth:
+    github: mamantoha/http-client-digest_auth
+    version: 0.2.0
 
   kemal:
     github: kemalcr/kemal
@@ -32,9 +36,13 @@ shards:
     github: jeromegn/kilt
     version: 0.4.0
 
+  markd:
+    github: icyleaf/markd
+    version: 0.2.0
+
   mint:
     github: mint-lang/mint
-    commit: 06eb511db822f37eedbe293ad97011b1b8d60559
+    commit: 97728aa837428c4d5c8035dab51dc54d7630a8f1
 
   radix:
     github: luislavena/radix
